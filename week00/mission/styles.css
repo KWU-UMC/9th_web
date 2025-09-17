@@ -1,0 +1,53 @@
+body, html{
+  background-color: rgb(219, 225, 255);
+  text-align: center;
+}
+
+header{
+  margin: 80px 0;
+}
+
+#input{
+  width: 50%;
+  height: 40px;
+  margin-top: 20px;
+}
+
+#main{
+  display: flex;
+  justify-content: center;
+}
+
+section-1, section-2{
+  width: 30%;
+}
+
+h3{
+  padding: 5px;
+  text-decoration: underline;
+  text-decoration-color: rgb(177, 189, 251);
+  text-underline-offset: 5px;
+}
+
+ul{
+  padding: 0;
+  margin: 0;
+}
+
+li{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin: 0 auto;
+  padding: 5px;
+  align-items: center;
+  border: none;
+  border-bottom: 3px solid rgb(177, 189, 251);
+  font-weight: bold;
+}
+
+button{
+  border: none;
+  background-color: rgb(177, 189, 251);
+}
