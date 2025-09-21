@@ -1,0 +1,105 @@
+/* src/styles.css */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.todo-app {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+.todo-app__title {
+    margin-top: 0;
+    color: #333;
+}
+
+/* 입력 영역 스타일 */
+.todo-app__input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+.todo-app__input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.todo-app__button {
+    padding: 0.5rem 1rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* 목록 컨테이너 스타일 */
+.todo-app__list-container {
+    margin-bottom: 1.5rem;
+}
+
+.todo-app__list-title {
+    text-align: left;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.todo-app__list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+/* 완료된 항목 스타일 */
+.todo-item--completed {
+    text-decoration: line-through;
+    color: #999;
+}
+
+/* 할 일/완료 버튼 스타일 */
+.todo-item__buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.todo-item__button--complete,
+.todo-item__button--delete {
+    padding: 0.4rem 0.6rem;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+.todo-item__button--complete {
+    background-color: #007bff;
+}
+
+.todo-item__button--delete {
+    background-color: #dc3545;
+}
