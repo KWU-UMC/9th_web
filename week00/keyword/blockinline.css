@@ -1,0 +1,17 @@
+.yellow{
+  background-color: yellow;
+}
+
+.green{
+  background-color: green;
+}
+
+.skyblue{
+  background-color: skyblue;
+}
+
+.inline-block{
+  display: inline-block;
+  width: 200px;
+  margin: 5px;
+}

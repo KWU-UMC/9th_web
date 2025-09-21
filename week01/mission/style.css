@@ -1,0 +1,75 @@
+body{
+  background-color: rgb(219, 225, 255);
+  text-align: center;
+}
+
+.todo-container{
+  margin: 80px 0;
+}
+
+.todo-container__header{
+  font-size: 2rem;
+}
+
+.todo-container__form{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+.todo-container__input{
+  width: 40%;
+  height: 40px;
+  border: 1px solid #ccc;
+}
+
+.todo-container__button{
+  background-color: gainsboro;
+  border: none;
+  cursor: pointer;
+}
+
+.main-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.main-container__section{
+  width: 30%;
+  margin: 0 20px;
+}
+
+.main-container__title{
+  padding: 5px;
+  text-decoration: underline;
+  text-decoration-color: rgb(177, 189, 251);
+  text-underline-offset: 5px;
+}
+
+.main-container__list{
+  padding: 0;
+  margin: 0;
+}
+
+.main-container__list li{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
+  padding: 5px;
+  border: none;
+  border-bottom: 3px solid rgb(177, 189, 251);
+  font-weight: bold;
+}
+
+.main-container__list button{
+  border: none;
+  background-color: rgb(177, 189, 251);
+  padding: 4px 10px;
+  cursor: pointer;
+}
