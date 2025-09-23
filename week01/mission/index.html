@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./style.css" />
+        <title>to-do</title>
+    </head>
+    <body>
+        <h1 class="todo-container__header">[TO-DO LIST]</h1>
+        <div class ="todo-container">
+            <form id="todo-form" class="todo-container__form">
+                <h4 class="todo-container__form_title">할 일 추가하기</h4>
+                <div class="todo-container__form_button">
+                    <input
+                        type="text"
+                        id="todo-input"
+                        class="todo-container__form_input"
+                        required
+                    />
+                    <button type="submit" class="todo-container__form_submit">추가</button> <!--button 눌러서 동작 있게 할 경우 type="submit으로 해야됨"-->
+                </div>
+            </form>
+            <div class="todo-container__render">
+                <div class="todo-container__render_section">
+                    <h4 class="todo-container__render_title">할 일</h4>
+                    <ul id="todo-list" class="todo-container__render_list">
+                        <!--<li class="todo-container__render_item">
+                            <p class="todo-container__render_item_text">123</p>
+                            <button class="todo-container__render_item_button">삭제</button>
+                        </li>-->
+                    </ul>
+                </div>
+                <div class="todo-container__render_section">
+                    <h4 class="todo-container__render_title">완료한 일</h4>
+                    <ul id="done-list" class="todo-container__render_list">
+                        <!--<li>예시 item</li> 이 부분은 나중에 ul 태그 안에 item들이 등록되도록-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="./dist/script.js"></script>
+    </body>
+</html>
