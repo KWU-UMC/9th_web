@@ -1,0 +1,76 @@
+/* 전체 레이아웃 */
+.todo {
+  width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+  background: #fff;
+}
+
+.todo__title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.todo__input {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.todo__input-field {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.todo__input-btn {
+  padding: 10px 16px;
+  border: none;
+  background: #4caf50;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.todo__subtitle {
+  font-size: 1.2rem;
+  margin: 16px 0 8px;
+}
+
+.todo__items {
+  list-style: none;
+  padding: 0;
+}
+
+.todo__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+}
+
+.todo__item-btn {
+  margin-left: 8px;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.todo__item-btn--done {
+  background: #2196f3;
+  color: #fff;
+}
+
+.todo__item-btn--delete {
+  background: #f44336;
+  color: #fff;
+}
