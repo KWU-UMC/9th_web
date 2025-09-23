@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./dist/app.js" defer></script>
+  <title>To do List</title>
+</head>
+<body>
+  <div class="todo-container">
+      <header class="todo-container__header">NARU TODO</header>
+      <form class="todo-container__form">
+        <input class="todo-container__input" type="text" placeholder="스터디 계획을 작성해보세요!">  
+        <button class="todo-container__button" type="submit">할일 추가</button>
+      </form>
+
+      <div class="render-container">
+        <section class="todoSection">
+            <h3 class="renderTitle">해야 할 일</h3>
+            <ul class="todoList"></ul>
+        </section>
+        <section class="clearSection">
+            <h3 class="renderTitle">해낸 일</h3>
+            <ul class="clearList"></ul>
+        </section>
+      </div>
+  </div>
+</body>
+</html>
