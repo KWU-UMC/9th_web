@@ -1,5 +1,5 @@
-const todoForm = document.getElementById('todo-form') as HTMLInputElement;
-const todoInput = document.getElementById('todo-input') as HTMLFormElement;
+const todoForm = document.getElementById('todo-form') as HTMLFormElement;
+const todoInput = document.getElementById('todo-input') as HTMLInputElement;
 const todoList = document.getElementById('todo-list') as HTMLUListElement;
 const doneList = document.getElementById('done-list') as HTMLUListElement;
 
