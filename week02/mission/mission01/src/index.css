@@ -1,0 +1,120 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:rgb(252, 252, 252);
+}
+
+.todo-container{
+    background:rgb(253, 253, 253);
+    padding:20px;
+    /*border-radius: 12px; 동글동글하고 싶을 때*/
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 350px;
+}
+
+.todo-container__header{
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.todo-container__form {
+    display:flex;
+    flex-direction: column;
+    margin-bottom:20px;
+}
+
+.todo-container__form_title {
+    padding: 8px;
+}
+
+.todo-container__form_button {
+    display:flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.todo-container__form_input {
+    flex: 1;
+    padding: 10px;
+    border-radius:5px;
+}
+
+.todo-container__form_submit {
+    padding: 10px 8px;
+    font-size: 14px;
+    background:rgb(13, 13, 13);
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+    transition: background-color 0.3s ease; /*background-color 바뀌는걸 명시해야 동작함*/
+}
+
+.todo-container__form_submit:hover {
+    background-color: rgb(45, 45, 45);
+}
+
+.todo-container__render {
+    display:flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.todo-container__render_section {
+    width:100%;
+    text-align: left;
+}
+
+.todo-container__render_title {
+    margin-bottom: 8px;
+    display:flex;
+    justify-content: center;
+}
+
+.todo-container__render_list {
+    list-style: none;
+    padding: 0;
+    margin:0;
+}
+
+.todo-container__render_item {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    margin-bottom: 6px;
+    width: 100%;
+    background-color: white;
+    border-radius:5px;
+}
+
+/* 상태 따라 바꿀 거라
+.todo-container__render_item_text {
+    flex: 1;
+}
+ 
+.todo-container__render_item_botton {
+    padding: 6px 8px;
+    font-size: 10px;
+    background:rgb(14, 11, 53);
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+    transition: background-color 0.3s ease; background-color 바뀌는걸 명시해야 동작함
+}
+
+.todo-container__render_item_botton:hover {
+    background-color: rgb(45, 45, 45);
+}
+*/
