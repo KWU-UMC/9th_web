@@ -1,16 +1,13 @@
+import {TTodo} from "./types/Todo";
+
 // HTML 문서에서 특정 태그를 가져와서 조작하기 위함
 const input = document.querySelector(".todo-container__input") as HTMLInputElement;
 const todoForm = document.querySelector(".todo-container__form") as HTMLFormElement;  
 const todoList = document.querySelector(".todoList") as HTMLUListElement;
 const clearList = document.querySelector(".clearList") as HTMLUListElement;
 
-type Todo = {
-    id: number;
-    text: string;
-};
-
-let todos: Todo[] = [];
-let clears: Todo[] = [];
+let todos: TTodo[] = [];
+let clears: TTodo[] = [];
 
 const renderTask = ():void => {
     todoList.innerHTML = "";
@@ -38,19 +35,19 @@ const addTodo = (todoText:string):void => {
 }
 
 // 완료 처리 함수
-const completeTodo = (todo: Todo):void => {
+const completeTodo = (todo: TTodo):void => {
     todos = todos.filter(t => t.id !== todo.id);
     clears.push(todo);
     renderTask();  
 }
 
 // 삭제 처리 함수
-const deleteTodo = (todo:Todo):void => {
+const deleteTodo = (todo:TTodo):void => {
     clears = clears.filter(t => t.id !== todo.id);
     renderTask();
 }
 
-const createTodoElement = (todo:Todo, isDone: boolean): HTMLElement => {
+const createTodoElement = (todo:TTodo, isDone: boolean): HTMLElement => {
     // li 태그 생성
     const li = document.createElement("li");
     li.classList.add("listItem");
