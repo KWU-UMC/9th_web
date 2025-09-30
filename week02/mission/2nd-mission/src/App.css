@@ -1,0 +1,209 @@
+/* 다크 팔레트 (가독성 ↑) */
+:root[data-theme="dark"] {
+  /* Surfaces */
+  --bg: #0e1118;          /* 전체 배경 더 어둡게 */
+  --card: #161b22;        /* 컨테이너(바깥 네모) */
+  --card-elev: #1b2230;   /* 섹션(안쪽 네모) */
+
+  /* Text */
+  --text: #f2f5f9;        /* 본문 텍스트 훨씬 밝게 */
+  --muted: #c0c8d2;       /* 보조 텍스트도 올림 */
+
+  /* Borders & outline */
+  --border: #2b3240;
+  --outline: #60a5fa;     /* 파란 포커스 링 */
+
+  /* Buttons (채도 낮춘 포인트) */
+  --btn-fg: #0e1118;
+  --btn-success: #67e8f9;        /* 청록 */
+  --btn-success-hover: #5ad9ea;
+  --btn-danger: #fca5a5;         /* 연코랄 */
+  --btn-danger-hover: #f28b8b;
+
+  /* Inputs */
+  --input-bg: #0f1624;
+  --input-border: #2b3240;
+  --placeholder: #93a0b0;
+
+  /* Shadow */
+  --shadow: 0 10px 32px rgba(0,0,0,0.45);
+}
+
+/* 페이지 배경 */
+body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial, sans-serif;
+}
+
+/* 바깥 큰 네모(컨테이너)도 어둡게 */
+.todo-container {
+  max-width: 720px;
+  margin: 28px auto;
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+/* 헤더도 어두운 카드 느낌 */
+.todo-container__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  background: linear-gradient(180deg, var(--card-elev) 0%, var(--card) 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: var(--shadow);
+}
+
+/* 안쪽 두 박스(할 일/완료) 더 어둡게 */
+.render-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.render-container__section {
+  background: var(--card-elev);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.render-container__title {
+  margin: 2px 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);     /* muted → text 로 변경해 대비 ↑ */
+}
+
+/* 리스트 */
+.render-container__list { list-style: none; margin: 0; padding: 0; }
+.render-container__item {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.render-container__item:last-child { border-bottom: none; }
+.render-container__item-text { color: var(--text); }
+
+/* 인풋: 텍스트/플레이스홀더 대비 개선 */
+.todo-container__form { display: flex; gap: 8px; margin: 12px 0 20px; }
+.todo-container__input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--text);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
+.todo-container__input::placeholder { color: var(--placeholder); }
+.todo-container__input:focus {
+  outline: 2px solid var(--outline);
+  outline-offset: 2px;
+  border-color: transparent;
+}
+
+/* 버튼 리셋 + 커스텀 포커스: 흰/파란 기본 스타일 제거 */
+button { appearance: none; -webkit-appearance: none; background: none; border: none; }
+button:focus { outline: none; }
+button:focus-visible { outline: 2px solid var(--outline); outline-offset: 2px; }
+
+/* 공통 버튼 */
+.btn {
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 12px;
+  color: var(--btn-fg);
+  font-weight: 700;
+  letter-spacing: .2px;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform .05s ease, background-color .2s ease, filter .2s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn--success { background: var(--btn-success); }
+.btn--success:hover { background: var(--btn-success-hover); filter: brightness(1.02); }
+.btn--danger { background: var(--btn-danger); }
+.btn--danger:hover { background: var(--btn-danger-hover); filter: brightness(1.02); }
+
+/* 토글 pill */
+.theme-toggle { 
+  position: relative; display: inline-flex; align-items: center; gap: 10px;
+  padding: 6px 12px 6px 38px; border-radius: 999px;
+  background: var(--card-elev); border: 1px solid var(--border); color: var(--text);
+  font-weight: 700; letter-spacing: .2px; box-shadow: var(--shadow);
+}
+.theme-toggle__thumb {
+  position: absolute; left: 6px; width: 24px; height: 24px; border-radius: 999px;
+  background: linear-gradient(180deg, #ffd166 0%, #fca311 100%);
+  box-shadow: 0 4px 10px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.4);
+  transition: transform .25s cubic-bezier(.2,.8,.2,1);
+}
+.theme-toggle.is-dark .theme-toggle__thumb { transform: translateX(58px); }
+/* === VISIBILITY HOTFIX === */
+
+/* 헤더/토글 글자 또렷하게 */
+.todo-container__header h1 { 
+  color: var(--text) !important;
+}
+.theme-toggle { 
+  color: var(--text) !important; 
+  background: var(--card-elev) !important; 
+  border-color: var(--border) !important;
+}
+.theme-toggle__label { 
+  color: var(--text) !important; 
+  opacity: 1 !important;
+}
+
+/* 리스트 타이틀(할 일/완료) 글자 선명하게 — 배경 제거 */
+.render-container__title {
+  color: var(--text) !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* 아이템 텍스트(할 일 항목들) 선명하게 */
+.render-container__item-text {
+  color: var(--text) !important;
+}
+
+/* 버튼 기본(브라우저 기본 스타일 제거) + 포커스 링 커스텀 */
+button { 
+  appearance: none; -webkit-appearance: none; 
+  background: none; border: none;
+}
+button:focus { outline: none; }
+button:focus-visible { outline: 2px solid var(--outline); outline-offset: 2px; }
+
+/* 액션 버튼은 원래 색 유지 */
+.btn { 
+  font-weight: 700; 
+  border-radius: 12px; 
+  padding: 10px 14px; 
+  transition: background-color .2s ease, filter .2s ease, transform .05s ease;
+  border: 1px solid rgba(255,255,255,.06);
+}
+.btn:active { transform: translateY(1px); }
+.btn--success { background: var(--btn-success); color: var(--btn-fg); }
+.btn--success:hover { background: var(--btn-success-hover); }
+.btn--danger { background: var(--btn-danger); color: var(--btn-fg); }
+.btn--danger:hover { background: var(--btn-danger-hover); }
+
+/* 컨테이너/카드 톤 더 어둡게(외곽 큰 네모까지) */
+.todo-container {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 14px 40px rgba(0,0,0,.45) !important;
+}
+.render-container__section {
+  background: var(--card-elev) !important;
+  border: 1px solid var(--border) !important;
+}
