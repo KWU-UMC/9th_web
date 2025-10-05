@@ -1,0 +1,33 @@
+/*각 요소별 박스*/
+.element {
+  border: 2px solid gray;
+  margin-bottom: 20px;
+}
+label {
+  font-size: 18px;
+  font-weight: 600;
+  color: gray;
+}
+
+/*block 요소*/
+h1,
+p {
+  background-color: lightcoral;
+}
+
+/*inline 요소*/
+a,
+span {
+  background-color: lightblue;
+  /*width 적용 안된다는 것 보여줌*/
+  width: 100px;
+}
+
+/*inline-block 요소*/
+button,
+select {
+  background-color: lightgreen;
+}
+.button-size {
+  width: 100px;
+}

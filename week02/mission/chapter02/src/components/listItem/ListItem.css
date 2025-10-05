@@ -1,0 +1,23 @@
+/* ===== 리스트 아이템 ===== */
+.render-container__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  background: #f9f9f9;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  width: 100%; /* Make sure the item takes full available width */
+}
+
+.render-container__item-button {
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
