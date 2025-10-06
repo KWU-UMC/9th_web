@@ -41,8 +41,8 @@ export const TaskForm = () => {
           }
         }}
       />
-      <div
-        className="bg-green-200 text-white border-none px-3 py-2 rounded-md text-md font-bold transition-colors duration-300 hover:bg-green-600 cursor-pointer"
+      <button
+        className="appearance-none bg-green-200 text-white border-none px-3 py-2 rounded-md text-md font-bold transition-colors duration-300 hover:bg-green-600 cursor-pointer"
         onClick={(e) => {
           e.preventDefault();
           if (todoInput) {
@@ -51,7 +51,7 @@ export const TaskForm = () => {
         }}
       >
         할 일 추가
-      </div>
+      </button>
     </form>
   );
 };

@@ -29,7 +29,7 @@ export const TaskList = ({ title, isDone }: TaskListProps) => {
     return (
       <li key={task.id} 
       className={clsx("flex justify-between items-center p-2 border-b border-gray-300 bg-gray-100 text-black rounded-md mb-1 w-full",
-        isDarkMode ? " border-gray-600" : " border-gray-300"
+        isDarkMode ? " border-gray-600 bg-gray-500 text-white" : " border-gray-300"
       )}
         >
         {task.text}
