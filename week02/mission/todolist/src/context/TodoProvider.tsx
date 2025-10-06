@@ -9,12 +9,12 @@ export const TodoProvider = ({children}: {children: ReactNode}) =>{
   const [isDark, setIsDark] = useState(false);
   
   function completeTask(task: Task): void{
-    setTodoList(todoList.filter((t) => t.id !== task.id));
-    setDoneList([...doneList, task]);
+    setTodoList(prev => prev.filter((t) => t.id !== task.id));
+    setDoneList(prev => [...prev, task]);
   };
   
   function deleteTask(task: Task): void{
-    setDoneList(doneList.filter((t) => t.id !== task.id));
+    setDoneList(prev => prev.filter((t) => t.id !== task.id));
   };
 
   function toggleDarkMode(): void{
@@ -24,7 +24,7 @@ export const TodoProvider = ({children}: {children: ReactNode}) =>{
     else{
       document.body.style.backgroundColor = '#606060ff';
     }
-    setIsDark(!isDark);
+    setIsDark(prev => !prev);
   }
 
   return(

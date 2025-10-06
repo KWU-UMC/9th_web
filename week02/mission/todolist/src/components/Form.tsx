@@ -3,7 +3,7 @@ import { useTodo } from "../context/TodoProvider";
 import clsx from "clsx";
 
 const Form = () => {
-  const { todoList, setTodoList, isDark, toggleDarkMode } = useTodo();
+  const { setTodoList, isDark, toggleDarkMode } = useTodo();
   const [input, setInput] = useState('');
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>): void{
@@ -16,7 +16,7 @@ const Form = () => {
     const newText = textInput.trim();
 
     if (newText){
-      setTodoList([...todoList, {id: Date.now(), text: newText} ]);
+      setTodoList(prev => [...prev, {id: Date.now(), text: newText} ]);
     }
   };
 
