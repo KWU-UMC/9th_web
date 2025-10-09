@@ -1,0 +1,10 @@
+* { box-sizing: border-box; }
+:root { color-scheme: only light; }
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: #eef2f3;  
+  color: #111;          
+  font-family: Arial, sans-serif;
+}

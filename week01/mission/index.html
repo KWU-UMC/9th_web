@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YONG TODO</title>
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+  <main class="todo">
+    <section class="todo__card">
+      <h1 class="todo__title">랜디의 할 일 리스트</h1>
+
+      <form class="todo__form" id="todoForm" autocomplete="off">
+        <label class="todo__label" for="todoInput" aria-label="할 일 입력">할 일 입력</label>
+        <input class="todo__input" id="todoInput" name="todo" type="text" placeholder="할 일 입력" />
+        <button class="todo__add-btn" type="submit" aria-label="할 일 추가">할 일 추가</button>
+      </form>
+
+      <div class="todo__lists">
+        <section class="todo__section">
+          <h2 class="todo__section-title">할 일</h2>
+          <ul class="todo__list" id="todoList" aria-live="polite"></ul>
+        </section>
+
+        <section class="todo__section">
+          <h2 class="todo__section-title">완료</h2>
+          <ul class="todo__list" id="doneList" aria-live="polite"></ul>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="./dist/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+:root{
+  --bg:#eef2f3;
+  --card:#ffffff;
+  --text:#222;
+  --muted:#777;
+  --ok:#2eae62;
+  --danger:#e44c4c;
+  --border:#e7e7e7;
+  --shadow: 0 10px 25px rgba(0,0,0,.08);
+  --radius: 16px;
+}
+
+*{ box-sizing: border-box; }
+html,body{ height:100%; }
+body{
+  margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, sans-serif;
+  background: var(--bg); color: var(--text); 
+}
+
+.todo{
+  min-height:100%;
+  display:grid; place-items:center; padding:40px 16px;
+}
+.todo__card{
+  width:min(520px, 90vw);
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding:28px;
+}
+.todo__title{
+  margin:0 0 16px; text-align:center; letter-spacing:.5px; font-weight:800;
+}
+.todo__form{
+  display:grid; grid-template-columns: 1fr auto; gap:10px; align-items:center;
+}
+.todo__label{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.todo__input{
+  height:40px; padding:0 12px; border:1px solid var(--border);
+  border-radius:10px; outline:none; font-size:14px;
+}
+.todo__input:focus{ border-color:#b2b2ff; box-shadow:0 0 0 3px rgba(130,140,255,.15); }
+.todo__add-btn{
+  height:40px; padding:0 12px; border:none; border-radius:10px; cursor:pointer;
+  background:#25a05a; color:#fff; font-weight:700;
+}
+.todo__lists{
+  margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:18px;
+}
+.todo__section-title{
+  margin:8px 0; font-size:14px; color:var(--muted); text-align:center;
+}
+.todo__list{
+  list-style:none; margin:0; padding:8px; min-height:120px;
+  border:1px dashed var(--border); border-radius:12px; background:#fafafa;
+}
+
+.todo-item{
+  display:flex; align-items:center; justify-content:space-between; gap:8px;
+  background:#fff; border:1px solid var(--border); border-radius:10px;
+  padding:8px 10px; margin:8px 0;
+}
+.todo-item__text{
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1; padding-right:8px;
+}
+.todo-item__actions{ display:flex; gap:6px; }
+.btn{
+  height:28px; padding:0 10px; border:none; border-radius:8px; cursor:pointer; font-size:12px; font-weight:700;
+}
+.btn--ok{ background:var(--ok); color:#fff; }
+.btn--danger{ background:var(--danger); color:#fff; }
+.btn:focus{ outline:2px solid rgba(0,0,0,.2); outline-offset:2px; }
