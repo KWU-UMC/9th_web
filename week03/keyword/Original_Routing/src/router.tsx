@@ -1,4 +1,11 @@
-import { Children, isValidElement, cloneElement, useEffect, useMemo, useState } from "react";
+import {
+  Children,
+  isValidElement,
+  cloneElement,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import type { FC, ReactElement } from "react";
 
 const getPath = () => window.location.pathname;
@@ -28,6 +35,15 @@ export const Link: FC<{ to: string; children: React.ReactNode }> = ({
   children,
 }) => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (
+      e.metaKey || // Cmd (Mac)
+      e.ctrlKey || // Ctrl (Windows)
+      e.shiftKey || // Shift
+      e.altKey || // Alt
+      e.button !== 0 // 왼쪽 클릭이 아닐 때 (ex. 휠 클릭)
+    ) {
+      return;
+    }
     e.preventDefault();
     navigateTo(to);
   };
@@ -51,10 +67,12 @@ export const Routes: FC<{ children: React.ReactNode }> = ({ children }) => {
   const currentPath = useCurrentPath();
 
   const activeRoute = useMemo(() => {
-    const routes = Children.toArray(children).filter(isValidElement) as ReactElement<RouteProps>[];
+    const routes = Children.toArray(children).filter(
+      isValidElement
+    ) as ReactElement<RouteProps>[];
     return routes.find((route) => route.props.path === currentPath);
   }, [children, currentPath]);
 
   if (!activeRoute) return null;
-return cloneElement<RouteProps>(activeRoute);
+  return cloneElement<RouteProps>(activeRoute);
 };
