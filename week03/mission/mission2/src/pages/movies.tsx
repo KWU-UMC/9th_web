@@ -41,7 +41,7 @@ const MoviesPage = () => {
           `https://api.themoviedb.org/3/movie/${endpoint}?language=ko-KR&page=${currentPage}`,
           {
             headers: {
-              Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`,
+              Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
             },
           }
         );
