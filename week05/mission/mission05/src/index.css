@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+body { margin: 0; }
+
+.card { @apply rounded-xl border border-gray-700 bg-gray-800 p-6 shadow-sm; }
+
