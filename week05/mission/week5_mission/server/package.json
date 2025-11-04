@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "ts-node index.ts"
+  },
+  "dependencies": {
+    "axios": "^...",
+    "cors": "^...",
+    "cookie-parser": "^...",
+    "dotenv": "^...",
+    "express": "^...",
+    "jsonwebtoken": "^...",
+    "querystring": "^..."
+  },
+  "devDependencies": {
+    "ts-node-dev": "^...",
+    "typescript": "^...",
+    "@types/node": "^...",
+    "@types/express": "^...",
+    "@types/cors": "^...",
+    "@types/cookie-parser": "^...",
+    "@types/jsonwebtoken": "^..."
+  }
+}

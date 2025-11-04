@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* (옵션) 2줄 말줄임 유틸 */
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+}
+
+/* 전역 기본값 */
+:root { color-scheme: light dark; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
