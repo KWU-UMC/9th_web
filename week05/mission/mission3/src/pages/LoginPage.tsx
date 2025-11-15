@@ -1,12 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import useForm from "../hooks/useForm";
 import { validateSignin, type userSigninImformation } from "../utils/validate";
-import { postSignin } from "../apis/auth";
-import { useLocalStorage } from "../hooks/useLocalStorage";
-import { LOCAL_STORAGE_KEY } from "../constance/key";
+import { useAuth } from "../context/AuthContext";
+import { useEffect } from "react";
 
-const LoginPage = () =>{
-    const { setItem } = useLocalStorage(LOCAL_STORAGE_KEY.accessToken);
+
+const LoginPage = () =>{    
+    const {login, accessToken} = useAuth();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(accessToken){
+            navigate('/my')
+        }
+    }, [navigate, accessToken])
 
     const { values, errors, touched, getInputProps } = useForm<userSigninImformation>({
         initialValue: {
@@ -18,21 +25,15 @@ const LoginPage = () =>{
 
 
     const handleSubmit = async () =>{
+        await login(values);
+    }
 
-        try {
-            const response = await postSignin(values);
-            setItem(response.data.accessToken);
-            console.log(response);
-        }catch(error) {
-            alert(error?.message);
-        }
-        
+    const handleHoohleLogin = () => {
+        window.location.href = import.meta.env.VITE_SERVER_API_URL+"/v1/auth/google/login";
     }
 
     const isDisabled = Object.values(errors || {}).some((error) => error.length > 0) ||
     Object.values(values).some((value) => value === "");
-
-    const navigate = useNavigate();
 
     const handleGoBack = () => {
         navigate(-1);
@@ -74,6 +75,16 @@ const LoginPage = () =>{
                     disabled={isDisabled}
                     className="w-full bg-blue-600 text-white py-3 rounded-md text-lg font-medium hover:bg-blue-700
                     transition-colors cursor-position disabled:bg-gray-300">로그인</button>
+                <button
+                    type="button"
+                    onClick={handleHoohleLogin}
+                    className="w-full bg-blue-600 text-white py-3 rounded-md text-lg font-medium hover:bg-blue-700
+                    transition-colors cursor-position disabled:bg-gray-300">
+                        <div className="flex items-center justify-center gap-4">
+                            <img src="/images/google.png" alt="Google Logo Image" width={30} height={30}/>
+                            <span>구글로그인</span>
+                        </div>
+                </button>
             </div>
         </div>
     )
