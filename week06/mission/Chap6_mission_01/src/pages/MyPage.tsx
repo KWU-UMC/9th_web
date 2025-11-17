@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { getMyInfo } from "../apis/auth";
 import type { ResponseMyInfoDto } from "../types/auth";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../hooks/useAuth";
 
 const MyPage = () => {
   const { logout } = useAuth();
-  const [data, setData] = useState<ResponseMyInfoDto>([]);
+  const [data, setData] = useState<ResponseMyInfoDto | null>(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -34,8 +34,8 @@ const MyPage = () => {
           <div className="h-32 overflow-hidden rounded-t-lg bg-blue-"></div>
           <div className="bg-blue-400 relative w-32 h-32 mx-auto -mt-16 overflow-hidden border-4 border-white rounded-full"></div>
           <div className="mt-2 text-center">
-            <h2 className="font-semibold">{data.data?.name}</h2>
-            <p className="text-gray-500">✉ {data.data?.email}</p>
+            <h2 className="font-semibold">{data?.data?.name}</h2>
+            <p className="text-gray-500">✉ {data?.data?.email}</p>
           </div>
           <ul className="flex items-center justify-around py-4 mt-2 text-gray-700">
             <li className="flex flex-col items-center justify-around">

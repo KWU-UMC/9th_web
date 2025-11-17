@@ -1,15 +1,22 @@
 import { NavLink } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
-import { getMyInfo } from "../apis/auth";
-import type { ResponseMyInfoDto } from "../types/auth";
 import { useAuth } from "../hooks/useAuth";
+import useGetMyInfo from "../hooks/queries/useGetMyInfo";
+import useLogout from "../hooks/mutations/useLogout";
+import DeleteUserModal from "./DeleteUserModal";
 
 const Navbar = () => {
+  const { accessToken } = useAuth();
+  const { logout } = useLogout();
+  const { data } = useGetMyInfo({
+    // 로그인 상태에 따라 자동 fetch
+    enabled: !!accessToken,
+  });
+
   const [isOpen, setIsOpen] = useState(true);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const { accessToken, logout } = useAuth();
-  const [data, setData] = useState<ResponseMyInfoDto>({} as ResponseMyInfoDto);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // 화면 너비에 따라 기본 사이드바 열림/닫힘 결정
   useEffect(() => {
@@ -24,22 +31,6 @@ const Navbar = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await getMyInfo();
-        setData(response);
-      } catch (err) {
-        console.error("내 정보 불러오기 실패:", err);
-      }
-    };
-
-    // accessToken이 있을 경우에만 실행
-    if (accessToken) {
-      fetchData();
-    }
-  }, [accessToken]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -122,7 +113,7 @@ const Navbar = () => {
           ) : (
             <nav className="flex items-center gap-3">
               <span className="text-white font-semibold">
-                {data.data?.name}님 환영합니다.
+                {data?.name}님 환영합니다.
               </span>
               <button
                 onClick={handleLogout}
@@ -189,11 +180,24 @@ const Navbar = () => {
           </div>
 
           {/* 하단 탈퇴 버튼 */}
-          <div className="flex items-center gap-3 cursor-pointer">
-            <h1 className="bg-red-500 p-2 rounded-md text-white font-bold cursor-pointer hover:text-red-400">
+          <button
+            className="flex items-center gap-3 cursor-pointer"
+            onClick={() => {
+              setIsModalOpen(true);
+            }}
+          >
+            <h1 className="bg-red-400 p-2 rounded-md text-gray-300 font-bold cursor-pointer hover:text-white hover:bg-red-600">
               탈퇴하기
             </h1>
-          </div>
+          </button>
+          {/* 모달 */}
+          {isModalOpen && (
+            <DeleteUserModal
+              onClose={() => {
+                setIsModalOpen(false);
+              }}
+            />
+          )}
         </div>
       </div>
     </div>

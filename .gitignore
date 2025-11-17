@@ -112,3 +112,17 @@ week06/mission/Chap6_mission_01/package-lock.json
 week06/mission/Chap6_mission_01/index.html
 week06/mission/Chap6_mission_01/eslint.config.js
 week06/mission/Chap6_mission_01/.env
+week07/mission/Chap7_mission/.env
+week07/mission/Chap7_mission/eslint.config.js
+week07/mission/Chap7_mission/index.html
+week07/mission/Chap7_mission/package-lock.json
+week07/mission/Chap7_mission/package.json
+week07/mission/Chap7_mission/README.md
+week07/mission/Chap7_mission/tsconfig.app.json
+week07/mission/Chap7_mission/tsconfig.json
+week07/mission/Chap7_mission/tsconfig.node.json
+week07/mission/Chap7_mission/vite.config.ts
+week07/mission/Chap7_mission/src/App.css
+week07/mission/Chap7_mission/src/index.css
+week07/mission/Chap7_mission/src/vite-env.d.ts
+week07/mission/Chap7_mission/src/hooks/queries/UMC_9th_web.code-workspace

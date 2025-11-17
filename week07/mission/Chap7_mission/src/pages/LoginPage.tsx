@@ -1,25 +1,10 @@
-import { useEffect } from "react";
-import { useAuth } from "../hooks/useAuth";
 import useForm from "../hooks/useForm";
 import { validateSignin, type UserSigninInformation } from "../utils/validate";
 import { useNavigate } from "react-router-dom";
-
+import useLogin from "../hooks/mutations/useLogin";
 const LoginPage = () => {
-  const { login, accessToken } = useAuth();
+  const { login } = useLogin();
   const navigate = useNavigate();
-
-  useEffect(() => {
-  const redirectURL = localStorage.getItem("redirectURL");
-
-  if (accessToken) {
-    if (redirectURL) {
-      localStorage.removeItem("redirectURL");
-      navigate(redirectURL);
-    } else {
-      navigate("/"); // 기본 경로
-    }
-  }
-}, [accessToken, navigate]);
 
   const { values, errors, touched, getInputProps } =
     useForm<UserSigninInformation>({
@@ -33,6 +18,15 @@ const LoginPage = () => {
   const handleSubmit = async () => {
     try {
       await login(values);
+
+      alert("로그인 성공");
+      const redirectURL = localStorage.getItem("redirectURL");
+      if (redirectURL) {
+        localStorage.removeItem("redirectURL");
+        navigate(redirectURL);
+      } else {
+        navigate("/");
+      }
     } catch {
       alert("로그인에 실패했습니다.");
     }
@@ -40,8 +34,9 @@ const LoginPage = () => {
 
   const handleGoogleLogin = () => {
     // 구글 로그인 로직 구현
-    window.location.href = import.meta.env.VITE_SERVER_API_URL + "/v1/auth/google/login" ; // 실제 구글 OAuth URL로 변경
-  }
+    window.location.href =
+      import.meta.env.VITE_SERVER_API_URL + "/v1/auth/google/login"; // 실제 구글 OAuth URL로 변경
+  };
 
   const isDisabled: boolean =
     Object.values(errors || {}).some((error) => error.length > 0) || // 오류가 있으면 true

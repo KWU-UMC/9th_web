@@ -11,8 +11,7 @@ const ProtectedLayout = () => {
   useEffect(() => {
     if (!accessToken && !alertShownRef.current) {
       alert("로그인 후 이용 가능한 서비스입니다!");
-      alertShownRef.current = true; // 한 번만 실행되도록 설정
-      // 로그인 후 돌아올 경로 저장
+      alertShownRef.current = true;
       localStorage.setItem("redirectURL", location.pathname);
     }
   }, [accessToken, location.pathname]);
