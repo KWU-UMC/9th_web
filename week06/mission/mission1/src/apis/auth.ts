@@ -1,5 +1,5 @@
 
-import { LOCAL_STORAGE_KEY } from "../constance/key";
+import { LOCAL_STORAGE_KEY } from "../constants/key";
 import type { RequestSigninDto, RequestSignupDto, ResponseSigninDto, ResponseSignupDto } from "../types/auth"
 import { axiosInstance } from "./axios";
 

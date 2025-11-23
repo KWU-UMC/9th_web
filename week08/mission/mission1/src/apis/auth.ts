@@ -1,5 +1,5 @@
 
-import { LOCAL_STORAGE_KEY } from "../constance/key";
+import { LOCAL_STORAGE_KEY } from "../constants/key";
 import type { RequestSigninDto, RequestSignupDto, ResponseSigninDto, ResponseSignupDto } from "../types/auth"
 import { axiosInstance } from "./axios";
 
@@ -43,4 +43,13 @@ export const postLogout = async () => {
   });
 
   return data;
+};
+
+export const updateMyInfo = async (data: {
+  name: string;
+  bio?: string;
+  avatar?: string;
+}) => {
+  const response = await axiosInstance.patch("/v1/users", data);
+  return response.data;
 };
