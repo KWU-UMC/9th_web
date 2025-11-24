@@ -12,7 +12,7 @@ export default function usePatchLp() {
     const qc = useQueryClient();
 
     return useMutation({
-        mutationFn: ({ lpId, body }: Variables) => patchLp({ lpId, body }),
+        mutationFn: ({ lpId, body }: Variables) => patchLp(lpId, body),
         onSuccess: () => {
             // LP 목록 쿼리를 무효화하여 자동 새로고침
             qc.invalidateQueries({ 

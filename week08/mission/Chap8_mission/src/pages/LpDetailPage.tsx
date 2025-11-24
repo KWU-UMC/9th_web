@@ -49,7 +49,7 @@ export const LpDetailPage = () => {
   const handleDeleteLp = () => {
     if (!lpid) return;
     if (confirm("정말 이 LP를 삭제하시겠습니까?")) {
-      deleteMutate({lpId: Number(lpid)}, { onSuccess: () => navigate("/") });
+      deleteMutate({ lpId: lpid }, { onSuccess: () => navigate("/") });
     }
   };
 

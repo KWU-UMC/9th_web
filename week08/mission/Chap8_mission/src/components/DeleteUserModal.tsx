@@ -7,9 +7,9 @@ type DeleteUserProps = {
 };
 
 const DeleteUserModal = ({ onClose }: DeleteUserProps) => {
+  const { mutate: deleteUserMutate } = useDeleteUser();
   const navigate = useNavigate();
-  
-  const { mutateAsync: deleteUserMutate } = useDeleteUser();
+
   const handleLogout = async () => {
     try {
       await deleteUserMutate();

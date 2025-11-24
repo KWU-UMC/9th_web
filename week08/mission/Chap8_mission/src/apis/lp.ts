@@ -54,12 +54,12 @@ export const deleteComment = async (lpId: string | undefined, commentId:number):
   return data;
 };
 
-export const patchLp = async ({ lpId, body }: { lpId: string; body: RequestPatchLpDto } ):Promise<ResponseLpDetailDto> => {
+export const patchLp = async (lpId: string | undefined, body: RequestPatchLpDto ):Promise<ResponseLpDetailDto> => {
   const { data } = await axiosInstance.patch(`/v1/lps/${lpId}`, body);
   return data;
 };
 
-export const deleteLp = async ({lpId}: RequestLpDto ):Promise<ResponseDeleteLpDto> => {
+export const deleteLp = async (lpId: string | undefined ):Promise<ResponseDeleteLpDto> => {
   const { data } = await axiosInstance.delete(`/v1/lps/${lpId}`);
   return data;
 };

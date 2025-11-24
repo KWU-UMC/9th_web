@@ -126,3 +126,16 @@ week07/mission/Chap7_mission/src/App.css
 week07/mission/Chap7_mission/src/index.css
 week07/mission/Chap7_mission/src/vite-env.d.ts
 week07/mission/Chap7_mission/src/hooks/queries/UMC_9th_web.code-workspace
+week08/mission/Chap8_mission/.env
+.gitignore
+week08/mission/Chap8_mission/eslint.config.js
+week08/mission/Chap8_mission/index.html
+week08/mission/Chap8_mission/package-lock.json
+week08/mission/Chap8_mission/package.json
+week08/mission/Chap8_mission/README.md
+week08/mission/Chap8_mission/tsconfig.app.json
+week08/mission/Chap8_mission/tsconfig.json
+week08/mission/Chap8_mission/tsconfig.node.json
+week08/mission/Chap8_mission/vite.config.ts
+week08/mission/Chap8_mission/src/apis/auth.ts
+week08/mission/Chap8_mission/src/hooks/queries/UMC_9th_web.code-workspace
