@@ -1,20 +1,27 @@
-import { useDispatch } from "../hooks/useCustomRedux";
-import { clearCart } from "../slices/cartSlice";
+import DeleteModal from "./DeleteModal";
+import { useModalActions } from "../hooks/useModalStore";
+import { useModalInfo } from "../hooks/useModalStore";
 
 export const ClearBtn = () => {
-  const dispatch = useDispatch();
+  const { isOpen } = useModalInfo();
+  const { openModal } = useModalActions();
 
-  const handleClearCart = () => {
-    // 수량 증가 액션 디스패치
-    dispatch(clearCart());
+  const handleModalOpen = () => {
+    openModal();
   };
 
   return (
-    <button
-      className="mt-6 w-full bg-red-100 text-white py-3 rounded-md font-semibold hover:bg-red-600 transition-colors"
-      onClick={handleClearCart}
-    >
-      전체 삭제하기
-    </button>
+    <>
+      <button
+        className="mt-6 w-full bg-red-100 text-white py-3 rounded-md font-semibold hover:bg-red-600 transition-colors"
+        onClick={handleModalOpen}
+      >
+        전체 삭제하기
+      </button>
+      {/* 모달 표시 */}
+      {isOpen && (
+        <DeleteModal/>
+      )}
+    </>
   );
 };

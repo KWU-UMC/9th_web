@@ -1,14 +1,13 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "../hooks/useCustomRedux";
-import { calculateTotals } from "../slices/cartSlice";
+import { useCartInfo, useCartActions } from "../hooks/useCartStore";
 
 export const Navbar = () => {
-  const { amount, cartItems } = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
+  const { amount, cartItems } = useCartInfo();
+  const { calculateTotals } = useCartActions();
 
   useEffect(() => {
-    dispatch(calculateTotals());
-  }, [dispatch, cartItems]);
+    calculateTotals();
+  }, [cartItems, calculateTotals]);
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-gray-800 text-white py-3 px-4 flex items-center justify-between z-50">

@@ -1,22 +1,21 @@
 import type { Lp } from "../types/cart";
-import { useDispatch } from "../hooks/useCustomRedux";
-import { decrement, increment } from "../slices/cartSlice";
+import { useCartActions } from "../hooks/useCartStore";
 
 interface CartItemProps {
   lp: Lp;
 }
 
 export const CartItem = ({ lp }: CartItemProps) => {
-  const dispatch = useDispatch();
+  const { increase, decrease } = useCartActions();
 
   const handleIncrease = () => {
     // 수량 증가 액션 디스패치
-    dispatch(increment({ id: lp.id }));
+    increase(lp.id);
   };
 
   const handleDecrease = () => {
     // 수량 감소 액션 디스패치
-    dispatch(decrement({ id: lp.id }));
+    decrease(lp.id);
   };
 
   return (

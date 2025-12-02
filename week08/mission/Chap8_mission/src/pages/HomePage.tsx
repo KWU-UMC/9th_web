@@ -25,14 +25,22 @@ const HomePage = () => {
   console.log("data:", data);
 
   const { ref, inView } = useInView({ threshold: 0 });
-  const throttledInView = useThrottle(inView, 3000);
 
-  // throttledInView 감시
+  const shouldFetch = inView && !isFetching && hasNextPage;
+  const throttledInView = useThrottle(shouldFetch, 1000);
+
   useEffect(() => {
-    if (throttledInView && !isFetching && hasNextPage) {
+    if (throttledInView) {
       fetchNextPage();
     }
-  }, [throttledInView, isFetching, hasNextPage, fetchNextPage]);
+  }, [throttledInView, fetchNextPage]);
+
+  // throttledInView 감시
+  // useEffect(() => {
+  //   if (throttledInView && !isFetching && hasNextPage) {
+  //     fetchNextPage();
+  //   }
+  // }, [throttledInView, isFetching, hasNextPage, fetchNextPage]);
 
   if (isError) {
     return <div>Error occurred while fetching data.</div>;
