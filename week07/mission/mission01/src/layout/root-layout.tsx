@@ -1,23 +1,22 @@
-import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+// src/layout/root-layout.tsx
+import { Outlet } from "react-router-dom";
 import Navbar from "../components/navbar";
 import Sidebar from "../components/Sidebar";
 import { useEffect, useState } from "react";
 
-const ProtectedLayout = () => {
-  const { accessToken } = useAuth();
+export default function RootLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(() => window.innerWidth >= 768);
 
   useEffect(() => {
-    const onResize = () => setSidebarOpen(window.innerWidth >= 768);
+    const onResize = () => {
+      // 화면이 작아지면 자동으로 닫아주고, 커지면 기본 열림 상태로
+      setSidebarOpen(window.innerWidth >= 768);
+    };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  const toggleSidebar = () => setSidebarOpen((v) => !v);
-
-  // 인증이 없으면 로그인 페이지로
-  if (!accessToken) return <Navigate to="/login" replace state={{ from: location.pathname }} />;
+  const toggleSidebar = () => setSidebarOpen(v => !v);
 
   return (
     <div className="h-screen flex flex-col">
@@ -33,6 +32,4 @@ const ProtectedLayout = () => {
       </div>
     </div>
   );
-};
-
-export default ProtectedLayout;
+}
