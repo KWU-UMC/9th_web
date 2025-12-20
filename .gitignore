@@ -139,3 +139,4 @@ week08/mission/Chap8_mission/tsconfig.node.json
 week08/mission/Chap8_mission/vite.config.ts
 week08/mission/Chap8_mission/src/apis/auth.ts
 week08/mission/Chap8_mission/src/hooks/queries/UMC_9th_web.code-workspace
+week10/mission/Chap10_mission/.env

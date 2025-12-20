@@ -20,11 +20,19 @@ interface CartState {
     actions: CartAction;
 }
 
+let amount = 0;
+let total = 0;
+
+cartItems.forEach((item) => {
+  amount += item.amount;
+  total += item.amount * item.price;
+});
+
 export const useCartStore = create<CartState>()(
-  immer((set, ) => ({
+  immer((set, get ) => ({
     cartItems: cartItems,
-    amount: 0,
-    total: 0,
+    amount: amount,
+    total: total,
     actions: {
       increase: (id: string): void => {
         set((state) => {
@@ -34,6 +42,7 @@ export const useCartStore = create<CartState>()(
             item.amount++;
           }
         });
+        get().actions.calculateTotals();
       },
       decrease: (id: string): void => {
         set((state) => {
@@ -46,6 +55,7 @@ export const useCartStore = create<CartState>()(
                 }
             }
         });
+        get().actions.calculateTotals();
       },
       removeItem: (id: string): void => {
         set((state) => {

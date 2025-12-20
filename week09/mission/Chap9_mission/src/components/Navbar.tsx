@@ -1,13 +1,7 @@
-import { useEffect } from "react";
-import { useCartInfo, useCartActions } from "../hooks/useCartStore";
+import { useCartInfo } from "../hooks/useCartStore";
 
 export const Navbar = () => {
-  const { amount, cartItems } = useCartInfo();
-  const { calculateTotals } = useCartActions();
-
-  useEffect(() => {
-    calculateTotals();
-  }, [cartItems, calculateTotals]);
+  const { amount } = useCartInfo();
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-gray-800 text-white py-3 px-4 flex items-center justify-between z-50">
